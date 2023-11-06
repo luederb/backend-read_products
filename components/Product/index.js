@@ -20,7 +20,7 @@ export default function Product() {
   let reviewHeadline = "No Review available";
   let reviewTitle = "";
   let reviewText = "";
-  let reviewRating = 0;
+  let reviewRating = null;
   if (data.reviews[0]) {
     reviewHeadline = "Review:";
     reviewTitle = `Title: ${data.reviews[0].title}`;
@@ -37,7 +37,7 @@ export default function Product() {
         Price: {data.price} {data.currency}
       </p>
       <div>
-        <h2>{reviewHeadline}</h2>
+        <h3>{reviewHeadline}</h3>
         <p>{reviewTitle}</p>
         <p>{reviewText}</p>
         <p>{reviewRating}</p>
