@@ -17,17 +17,17 @@ export default function Product() {
     return;
   }
   console.log("data: ", data);
-  let reviewHeadline = "No Review available";
-  let reviewTitle = "";
-  let reviewText = "";
-  let reviewRating = null;
-  if (data.reviews[0]) {
-    reviewHeadline = "Review:";
-    reviewTitle = `Title: ${data.reviews[0].title}`;
-    reviewText = `Text: ${data.reviews[0].text}`;
-    reviewRating = `Rating: ${data.reviews[0].rating}`;
-  } else {
-  }
+  // let reviewHeadline = "No Review available";
+  // let reviewTitle = "";
+  // let reviewText = "";
+  // let reviewRating = null;
+  // if (data.reviews[0]) {
+  //   reviewHeadline = "Review:";
+  //   reviewTitle = `Title: ${data.reviews[0].title}`;
+  //   reviewText = `Text: ${data.reviews[0].text}`;
+  //   reviewRating = `Rating: ${data.reviews[0].rating}`;
+  // } else {
+  // }
 
   return (
     <ProductCard>
@@ -36,12 +36,15 @@ export default function Product() {
       <p>
         Price: {data.price} {data.currency}
       </p>
-      <div>
+      {data.reviews.map((review) => {
+        return <p key={review._id}>{review.title}</p>;
+      })}
+      {/* <div>
         <h3>{reviewHeadline}</h3>
         <p>{reviewTitle}</p>
         <p>{reviewText}</p>
         <p>{reviewRating}</p>
-      </div>
+      </div> */}
       <div>
         {/* {if (!data.review) {<p>No Review available</p>} else (<h2>Review:</h2>
       <p>Title: {data.review.title}</p>
